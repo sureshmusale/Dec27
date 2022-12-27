@@ -1,0 +1,23 @@
+name: Concurrency Check
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+concurrency:
+  group: build and test
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: build and run code
+      run: |
+        echo "start code build"
+        sleep 2m
+        echo "finished code build"
+    - name: test the code
+      run: |
+        echo "test the code"
+        sleep 2m
+        echo "finish the code testing"
